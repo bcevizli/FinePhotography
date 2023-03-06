@@ -58,7 +58,7 @@ extension APIClient {
                     completion(.failure(.jsonParsingFailed))
                 }
             }
-            
         }
+        task.resume()
     }
 }
