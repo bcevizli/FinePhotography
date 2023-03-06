@@ -33,6 +33,7 @@ class PhotoListView: UIView {
     }()
     init() {
         super.init(frame: .zero)
+        setupView()
     }
     required init?(coder: NSCoder) {
         super.init(coder: coder)

@@ -31,7 +31,7 @@ extension PhotoFeed: Endpoint {
         case .searchByCategory(let category, let perPage):
             return "query=\(category)&per_page=\(perPage)"
         case .curated(let currentPage, let perPage):
-            return "query=\(currentPage)&per_page=\(perPage)"
+            return "page=\(currentPage)&per_page=\(perPage)"
         }
     }
     
