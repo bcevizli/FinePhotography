@@ -22,7 +22,7 @@ class PhotoCell: UITableViewCell {
         let v = UILabel()
         v.translatesAutoresizingMaskIntoConstraints = false
         v.font = v.font.withSize(16)
-        v.textColor = .red
+        v.textColor = .white
         return v
     }()
     
@@ -30,7 +30,7 @@ class PhotoCell: UITableViewCell {
         let v = UILabel()
         v.translatesAutoresizingMaskIntoConstraints = false
         v.font = v.font.withSize(14)
-        v.textColor = .blue
+        v.textColor = .white
         return v
     }()
     
