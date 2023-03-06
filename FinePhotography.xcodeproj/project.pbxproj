@@ -24,6 +24,8 @@
 		EA1B792D29B5E6B0005ABBAE /* PexelsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1B792C29B5E6B0005ABBAE /* PexelsClient.swift */; };
 		EA1B792F29B5E80C005ABBAE /* PhotoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1B792E29B5E80C005ABBAE /* PhotoListViewModel.swift */; };
 		EA1B793129B5EF9C005ABBAE /* PhotoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1B793029B5EF9C005ABBAE /* PhotoListView.swift */; };
+		EA5C838129B6099900444602 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5C838029B6099900444602 /* PhotoCell.swift */; };
+		EA5C838329B60FFB00444602 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5C838229B60FFB00444602 /* ImageLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		EA1B792C29B5E6B0005ABBAE /* PexelsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PexelsClient.swift; sourceTree = "<group>"; };
 		EA1B792E29B5E80C005ABBAE /* PhotoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListViewModel.swift; sourceTree = "<group>"; };
 		EA1B793029B5EF9C005ABBAE /* PhotoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListView.swift; sourceTree = "<group>"; };
+		EA5C838029B6099900444602 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		EA5C838229B60FFB00444602 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				EA1B793029B5EF9C005ABBAE /* PhotoListView.swift */,
+				EA5C838029B6099900444602 /* PhotoCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -136,6 +141,7 @@
 				EA1B792829B5CD74005ABBAE /* APIError.swift */,
 				EA1B792A29B5CE65005ABBAE /* APIClient.swift */,
 				EA1B792C29B5E6B0005ABBAE /* PexelsClient.swift */,
+				EA5C838229B60FFB00444602 /* ImageLoader.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -214,12 +220,14 @@
 				EA1B78FF29B5C387005ABBAE /* AppDelegate.swift in Sources */,
 				EA1B792D29B5E6B0005ABBAE /* PexelsClient.swift in Sources */,
 				EA1B791B29B5C91C005ABBAE /* PhotoFeedResult.swift in Sources */,
+				EA5C838129B6099900444602 /* PhotoCell.swift in Sources */,
 				EA1B790129B5C387005ABBAE /* SceneDelegate.swift in Sources */,
 				EA1B791F29B5CA08005ABBAE /* PhotoSize.swift in Sources */,
 				EA1B791929B5C7E7005ABBAE /* HomeViewController.swift in Sources */,
 				EA1B792729B5CD2D005ABBAE /* Result.swift in Sources */,
 				EA1B792529B5CBA5005ABBAE /* PhotoFeed.swift in Sources */,
 				EA1B792329B5CA9F005ABBAE /* API.swift in Sources */,
+				EA5C838329B60FFB00444602 /* ImageLoader.swift in Sources */,
 				EA1B791D29B5C97F005ABBAE /* Photo.swift in Sources */,
 				EA1B792929B5CD74005ABBAE /* APIError.swift in Sources */,
 				EA1B792B29B5CE65005ABBAE /* APIClient.swift in Sources */,

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol PhotoListViewModelDelegate: AnyObject {
     func photosLoaded()
@@ -17,11 +18,13 @@ final class PhotoListViewModel {
     weak var delegate: PhotoListViewModelDelegate?
     
     private let pexelsClient: PexelsClient
+    private let imageLoader: ImageLoader
     
     var currentPage = 0
     
     init() {
         pexelsClient = PexelsClient()
+        imageLoader = ImageLoader()
         
         loadPhotos()
     }
@@ -54,5 +57,21 @@ final class PhotoListViewModel {
             }
         }
     }
-    
+    func loadImage(url: URL, _ completion: @escaping (UIImage?) -> Void) -> UUID? {
+        let token = imageLoader.loadImage(url) { (result) in
+            switch result {
+            case .success(let image):
+                    completion(image)
+            case .failure(let error):
+                completion(nil) 
+                print(error)
+            }
+        }
+        return token
+    }
+    func cancel(_ token: UUID?) {
+        if let token = token {
+            imageLoader.cancel(token)
+        }
+    }
 }

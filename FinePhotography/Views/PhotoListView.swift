@@ -12,6 +12,9 @@ protocol PhotoListItemDelegate: AnyObject {
 }
 
 class PhotoListView: UIView {
+    
+    let CELL_ID = "cellID"
+    
     weak var delegate: PhotoListItemDelegate?
     
     lazy var vm: PhotoListViewModel = {
@@ -25,10 +28,31 @@ class PhotoListView: UIView {
         v.translatesAutoresizingMaskIntoConstraints = false
         v.delegate = self
         v.dataSource = self
-        v.register(UITableViewCell.self, forCellReuseIdentifier: "cell ")
+        v.register(PhotoCell.self, forCellReuseIdentifier: CELL_ID)
         return v
     }()
+    init() {
+        super.init(frame: .zero)
+    }
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupView()
+    }
+    func setupView() {
+        addSubview(tableView)
+        setupConstraints()
+    }
+    func setupConstraints() {
+        NSLayoutConstraint.activate([
+            tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            tableView.topAnchor.constraint(equalTo: topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
+    }
 }
+
+
 
 extension PhotoListView: PhotoListViewModelDelegate {
     func photosLoaded() {
@@ -50,7 +74,23 @@ extension PhotoListView: UITableViewDelegate {
 
 extension PhotoListView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: CELL_ID, for: indexPath) as? PhotoCell
+        let photo = vm.getPhoto(at: indexPath.row)
+        cell?.photographerLabel.text = photo.photographer
+        cell?.photographerTagLabel.text = photo.photographer_tag
+        if let url = URL(string: photo.src.landscape) {
+            let token = vm.loadImage(url: url) { (image) in
+                DispatchQueue.main.async {
+                    cell?.imageV.image = image
+                }
+            }
+            cell?.onReuse = {
+                if let token = token {
+                    self.vm.cancel(token)
+                }
+            }
+        }
+        return cell ?? UITableViewCell()
         
         
     }
